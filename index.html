@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<!-- 想要展示的样式 -->
+		<div class="capture" id="capture">
+			<h3 class="match-title">天津市第七届"体彩杯"市民运动会游泳比赛</h3>
+			<h2 class="card-name">参赛证</h2>
+			<div class="head-photo">
+				<img src="img/head.png" alt=""> 
+			</div>
+			<div class="role">
+				<p>运动员</p>
+			</div>
+			<div class="info-box">
+				<div class="info-item">
+					<label class="info-lab">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+					<input type="text" value="王子涵" class="info-ipt">
+				</div>
+				<div class="info-item">
+					<label class="info-lab">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+					<input type="text" value="51000499" class="info-ipt">
+				</div>
+				<div class="info-item">
+					<label class="info-lab">单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</label>
+					<input type="text" value="个人注册用户" class="info-ipt">
+				</div>
+			</div>
+		</div>
+		<div class="work-btns">
+			<button type="button" id="bg-img">更换背景图片</button>
+			<button type="button" id="bg-color">设置背景颜色</button>
+		</div>
+		<button class="btn" id="btn">生成参赛证</button>
+		
+		<div id="box">
+			<div id="container"></div>
+			<div id="close">×</div>
+		</div>
+		
+		<script type="text/javascript" src="js/html2canvas.js"></script>
+		<script type="text/javascript">
+			var btn=document.getElementById("btn");
+			var close=document.getElementById("close");
+			btn.onclick=function(){
+				var container=document.getElementById("container");
+				html2canvas(document.querySelector("#capture")).then(canvas =>{
+				    document.querySelector("#container").appendChild(canvas)
+				});
+				document.querySelector("#box").style.display="block";
+			}
+			close.onclick=function(){
+				var box=document.getElementById("box");
+				var container=document.getElementById("container");
+				container.innerHTML='';
+				box.style.display="none";
+			}
+			
+		</script>
+	</body>
+</html>
+
+
+<!-- html2canvas(document.body).then(function(canvas) {
+    document.body.appendChild(canvas);
+}); -->
+
+
+<!-- var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+var my_gradient=ctx.createLinearGradient(0,0,170,0); 创建线性的渐变对象
+my_gradient.addColorStop(0,"black");
+my_gradient.addColorStop(1,"white");
+ctx.fillStyle=my_gradient;
+ctx.fillRect(20,20,150,100);
+ -->
+ 
